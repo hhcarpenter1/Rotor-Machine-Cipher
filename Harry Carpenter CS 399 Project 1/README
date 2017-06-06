@@ -1,0 +1,85 @@
+Project #1: Rotor Machine
+By: Harry Carpenter
+CS 399, American Cryptography, Professor Dooley
+2/12/2017
+
+How to use program:
+
+Enciphering:
+
+1) Click on green arrow, then click OK to run the program.
+
+2) If you want to encipher a text file, enter 1 on the console.
+
+3) You will receive a FileChooser to select a text file for encrypting. You will need to minimize Java and any other 
+programs you have open by pressing '_' at the top right part of your screen, so you can
+see the FileChooser. The FileChooser likes to hide behind everything! Sometimes, it could be a bit slow to load up.
+
+4) In the FileChooser, select a text file for encrypting, then click OK.
+
+5) The console will print out the plain text message. 
+
+6) The console will ask you for a 26-letter permutation. In the console, type in a 26-letter permutation. Your input must be exactly 26 letters, must have
+no repeating letters, and must only contain letters from the English alphabet.
+
+7) The console will ask you for an orientation for rotor 1. In the console, type in the orientation for rotor 1. Your input must be a number between 0 and 25.
+
+8) The console will ask you for an orientation for rotor 2. In the console, type in the orientation for rotor 2. Your input must be a number between 0 and 25.
+
+9) The console will print out the enciphered message
+
+10) Enter the path on your computer that you want to save the enciphered message to. An example
+of a path would be: C:/Users/Harry/Documents/encipheredMessage.txt 
+
+Deciphering:
+
+1) Click on green arrow, then click OK to run the program.
+
+2) If you want to decipher a text file, enter 2 on the console.
+
+3) You will receive a FileChooser to select a text file for decrypting. You will need to minimize Java and any other 
+programs you have open by pressing '_' at the top right part of your screen, so you can
+see the FileChooser. The FileChooser likes to hide behind everything!
+
+4) In the FileChooser, select a text file for decrypting, then click OK.
+
+5) The console will print out the encrypted text message.
+
+6) The console will ask you for the permutation part of the key for your encrypted message. To find the permutation part of the key, look at the bottom of the text file. Copy the permutation
+from the text document, and paste it to the console. 
+
+7) The console will ask you for the first rotor orientation part of the key for your encrypted message. To find the first orientation part of the key, look at the bottom of the text message. Copy the first orientation
+from the text document, and paste it to the console. 
+
+8) The console will ask you for the second rotor orientation part of the key for your encrypted message. To find the second orientation part of the key, look at the bottom of the text message. Copy the first orientation
+from the text document, and paste it to the console. 
+
+9) If you input the correct orientations and permutation, your access to the message will be accepted, and you will receive the original plainText message. The message will be in lowercase letters. 
+Otherwise, your message will look like a whole bunch of gobbledy gook!
+
+Design:
+
+The project is broken up in two separate classes, Machine is responsible for the functionality 
+of the cipher machine, and User is in charge of the user interaction and inputs. 
+
+In the Machine class, there are two methods to step through the entire encryption and decryption of the message. The encryptMessage method will
+call the encryptP, encryptF, encryptS, and encryptR methods. For the inverse P, F, and S, there is a separate method to flip the method 
+in the opposite direction. Therefore, it will use the encryptP, encryptF, and encryptS methods again, but this time, they take the inverse alphabets. These encryption methods use 
+the helper methods for substitution, rotor shifting, and checking to see if the character is alphabetic (if not the rotor doesn't shift).    
+
+In the User class, there is a run method that gives the user the option to encrypt or decrypt a file. The run file is broken down to an encrytMessage method and decryptMessage method. 
+In both the encrypt and decrypt methods, the user can choose a file from a FileChooser. The FileReader reads input from the path to translate 
+it into a String message. Then, the user types in a 26 letter permutation, and the same class checks the permutation to see 
+if it makes the requirements. The user then inputs an int for the orientations, and the User class checks it for validation. The user key and message inputs are then used the encrypt or decrypt the message. The plainText alphabet, 
+firstRotor alphabet from the assignment sheet, and the secondRotor alphabet are also important inputs for our encryption and decryption.During decryption, if the original message matches up with the original key inputs, then the contents of the message will be revealed! If not, we will have gobbledy gook! 
+
+The main class will run the whole program!
+
+Although there may be a lot of repetition in the code, I believe it was important for understanding the code better. 
+Even though there could be a minor flaw with my encryption, it appears that there is very little repetition, which is a good sign! 
+Besides, I wasn't sure how to test my code to make sure my enciphering was correct. Other than that, the encryption and decryption
+should run flawlessly 99% of the time.     
+
+
+     
+
